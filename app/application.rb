@@ -9,8 +9,8 @@ class Application
         item_name = req.path.split("/items").last
         item = @@items.find{|i| i.name == item_name}
 
-        if req.path!="/item"
-            resp.write "Item not found"
+        if req.path=="/item"
+            resp.write "#{item.price}"
             resp.status = 400
         elsif req.path=="/testing"
             resp.write "Route not found"
